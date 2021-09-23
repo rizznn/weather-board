@@ -95,6 +95,15 @@ function getWeatherData(city) {
             });
     }
         
+    // Get history if there's history from local storage
+    searchBtnEl.addEventListener("click", function () {
+        const searchTerm = cityInputEl.value;
+        getWeather(searchTerm);
+        searchHistory.push(searchTerm);
+        localStorage.setItem("search", JSON.stringify(searchHistory));
+        renderSearchHistory();
+    })
+
 var formSubmit = function(event) {
     event.preventDefault();
     // get value from input element
