@@ -14,7 +14,8 @@ This website is created with Visual Studio Code using html, bootstrap and Javasc
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/80712058/134501752-252fa6a8-3fc4-4f3a-a42a-23bff0f8a694.png)
 
+## Link to GitHub repo
+https://github.com/rizznn/weather-board/
 
 ## Link to deployed application
 https://rizznn.github.io/weather-board/
-
