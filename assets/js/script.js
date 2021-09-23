@@ -1,7 +1,13 @@
 var apiKey = '8823044c5dc41939822c0d258eaf31c6';
 
-var searchFormEl = document.querySelector("#form");
 var cityInputEl = document.querySelector("#searchCity");
+var searchBtnEl = document.querySelector("#searchBtn");
+var clearHistoryEl = document.querySelector("#clearHistory");
+var cityNameEl = document.querySelector("#cityNameEl");
+var currentImgEl = document.querySelector("#currentImg");
+
+
+var searchFormEl = document.querySelector("#form");
 var historyContainerEl = document.querySelector("#historyContainer");
 var cityName = document.querySelector("#cityName");
 
