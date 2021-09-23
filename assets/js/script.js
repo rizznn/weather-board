@@ -1,5 +1,5 @@
 var apiKey = '8823044c5dc41939822c0d258eaf31c6';
-var city = 'Toronto';
+
 var searchFormEl = document.querySelector("#form");
 var cityInputEl = document.querySelector("#searchCity");
 var historyContainerEl = document.querySelector("#historyContainer");
