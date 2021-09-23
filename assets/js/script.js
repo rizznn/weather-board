@@ -5,12 +5,36 @@ var searchBtnEl = document.querySelector("#searchBtn");
 var clearHistoryEl = document.querySelector("#clearHistory");
 var cityNameEl = document.querySelector("#cityNameEl");
 var currentImgEl = document.querySelector("#currentImg");
+var currentTempEl = document.querySelector("#temperature");
+var currentHumidityEl = document.querySelector("#humidity");
+var currentWindEl = document.querySelector("#wind-speed");
+var currentUVEl = document.querySelector("#UV-index");
+var historyContainerEl = document.querySelector("#history");
+var fivedayEl = document.querySelector("#fiveday-header");
+var todayweatherEl = document.querySelector("#today-weather");
 
+let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
-var searchFormEl = document.querySelector("#form");
-var historyContainerEl = document.querySelector("#historyContainer");
-var cityName = document.querySelector("#cityName");
-
+function getWeatherData(city) {
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
+    axios.get(queryURL)
+        .then(function (response) {
+            todayweatherEl.classList.remove("d-none");
+        
+            // Parse response
+            var todayDate = new Date(response.data.dt * 1000);
+            var day = todayDate.getDate();
+            var month = todayDate.getMonth() + 1;
+            var year = todayDate.getFullYear();
+            cityNameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
+            let weatherImg = response.data.weather[0].icon;
+            currentImgEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherImg + "@2x.png");
+            currentImgEl.setAttribute("alt", response.data.weather[0].description);
+            currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
+            currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
+            currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+            
+        
 var formSubmit = function(event) {
     event.preventDefault();
     // get value from input element
